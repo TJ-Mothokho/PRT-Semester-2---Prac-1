@@ -51,8 +51,8 @@ namespace PRT_Semester_2___Prac_1
 
         static void CalculateAverage(int[,] temperatures, int numberOfWeeks, int numberOfDays, double[] averageTemperatureForEachDay)
         {
-            int sum = 0;
-            int average = 0;
+            double sum = 0;
+            double average = 0;
             for (int r = 0; r < numberOfDays;r++)
             {
                 
