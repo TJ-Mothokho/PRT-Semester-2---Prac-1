@@ -33,12 +33,20 @@ namespace PRT_Semester_2___Prac_1
                 
             }
 
-            CalculateAverage(temperatures, numberOfWeeks, numberOfDays, averageTemperatureForEachDay);
+            CalculateAverage(temperatures, numberOfWeeks, numberOfDays, averageTemperatureForEachDay, averageTemperatureForEachweek);
 
-            foreach(var num in averageTemperatureForEachDay)
+            foreach (var num in averageTemperatureForEachDay)
             {
                 Console.WriteLine("{0:f2}", num);
             }
+
+            Console.WriteLine("");
+
+            foreach (var num in averageTemperatureForEachweek)
+            {
+                Console.WriteLine("{0:f2}", num);
+            }
+
             Console.ReadLine();
 
         }
@@ -49,7 +57,7 @@ namespace PRT_Semester_2___Prac_1
             temperatures[r, c] = temp;
         }
 
-        static void CalculateAverage(int[,] temperatures, int numberOfWeeks, int numberOfDays, double[] averageTemperatureForEachDay)
+        static void CalculateAverage(int[,] temperatures, int numberOfWeeks, int numberOfDays, double[] averageTemperatureForEachDay, double[] averageTemperatureForEachweek)
         {
             double sum = 0;
             double average = 0;
@@ -68,6 +76,31 @@ namespace PRT_Semester_2___Prac_1
                 average = 0;
 
             }
+
+            //Now we get the average for each week
+
+             sum = 0;
+            average = 0;
+            for (int c = 0; c < numberOfWeeks; c++)//eeks
+            {
+
+                for (int r = 0; r < numberOfDays; r++)//day
+                {
+                    sum += temperatures[r, c];
+
+
+                }
+                average = sum / numberOfDays;//days
+                averageTemperatureForEachweek[c] = average;
+                sum = 0;
+                average = 0;
+
+            }
+
+        }
+        static void Display()
+        {
+            
         }
     }
 
