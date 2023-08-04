@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +32,13 @@ namespace PRT_Semester_2___Prac_1
                 }
                 
             }
+
+            CalculateAverage(temperatures, numberOfWeeks, numberOfDays, averageTemperatureForEachDay);
+
+            foreach(var num in averageTemperatureForEachDay)
+            {
+                Console.WriteLine("{0:f2}", num);
+            }
             Console.ReadLine();
 
         }
@@ -41,5 +48,28 @@ namespace PRT_Semester_2___Prac_1
             int temp = int.Parse(Console.ReadLine());
             temperatures[r, c] = temp;
         }
+
+        static void CalculateAverage(int[,] temperatures, int numberOfWeeks, int numberOfDays, double[] averageTemperatureForEachDay)
+        {
+            int sum = 0;
+            int average = 0;
+            for (int r = 0; r < numberOfDays;r++)
+            {
+                
+                for (int c = 0; c < numberOfWeeks; c++)
+                {
+                    sum += temperatures[r, c];
+
+
+                }
+                average = sum / numberOfWeeks;
+                averageTemperatureForEachDay[r] = average;
+                sum=0;
+                average = 0;
+
+            }
+        }
     }
+
+
 }
