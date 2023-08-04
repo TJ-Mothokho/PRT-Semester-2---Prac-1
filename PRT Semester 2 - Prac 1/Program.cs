@@ -35,17 +35,19 @@ namespace PRT_Semester_2___Prac_1
 
             CalculateAverage(temperatures, numberOfWeeks, numberOfDays, averageTemperatureForEachDay, averageTemperatureForEachweek);
 
-            foreach (var num in averageTemperatureForEachDay)
-            {
-                Console.WriteLine("{0:f2}", num);
-            }
+            //foreach (var num in averageTemperatureForEachDay)
+            //{
+            //    Console.WriteLine("{0:f2}", num);
+            //}
 
             Console.WriteLine("");
 
-            foreach (var num in averageTemperatureForEachweek)
-            {
-                Console.WriteLine("{0:f2}", num);
-            }
+            Display(temperatures, numberOfWeeks, numberOfDays, averageTemperatureForEachDay, averageTemperatureForEachweek, dayNames);
+
+            //foreach (var num in averageTemperatureForEachweek)
+            //{
+            //    Console.WriteLine("{0:f2}", num);
+            //}
 
             Console.ReadLine();
 
@@ -98,9 +100,31 @@ namespace PRT_Semester_2___Prac_1
             }
 
         }
-        static void Display()
+        static void Display(int[,] temperatures, int numberOfWeeks, int numberOfDays, double[] averageTemperatureForEachDay, double[] averageTemperatureForEachweek, string[] dayNames)
         {
-            
+            Console.Clear();
+
+            Console.WriteLine("4 WEEK WEATHER REPORT");
+            Console.WriteLine("=======================");
+            Console.WriteLine("DAY\t\tWEEK 1\tWEEK 2\tWEEK 3\tWEEK 4\tAVERAGE");
+            Console.WriteLine("");
+
+            for(int r = 0; r < temperatures.GetLength(0); r++)
+            {
+                Console.Write($"{dayNames[r]}\t\t");
+
+                for (int c = 0;c < temperatures.GetLength(1); c++)
+                {
+                    Console.Write($"{temperatures[r, c]}\t");
+                }
+
+                Console.Write($"{averageTemperatureForEachDay[r]}");
+                Console.WriteLine();
+            }
+            for(int i=0;i < numberOfWeeks;i++)
+            {
+                Console.Write("\t\t" + averageTemperatureForEachweek[i]);
+            }
         }
     }
 
